@@ -1,1 +1,1 @@
-I am Building a NeoCities Website.
+I am Building a NeoCities Website for fun.
