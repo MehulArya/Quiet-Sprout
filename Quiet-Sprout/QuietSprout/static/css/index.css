@@ -1,0 +1,91 @@
+	:root {
+            /* Gothic Midnight Palette */
+            --bg-obsidian: #050208;
+            --deep-plum: #1a0b2e;
+            --electric-purple: #7b2cbf;
+            --bone-white: #d1d1d1;
+            --crimson-accent: #4a0404;
+            --neon-blue: #00d4ff;
+            
+            /* 98.css Overrides */
+            --surface: #120a1f;
+            --button-face: #1a0b2e;
+            --button-highlight: #5a189a;
+            --button-shadow: #000;
+        }
+
+        body {
+            background-color: var(--bg-obsidian);
+            /* Gothic Cross/Diamond Tiled Background */
+            background-image: 
+                linear-gradient(rgba(138, 77, 221, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(138, 77, 221, 0.05) 1px, transparent 1px);
+            background-size: 25px 25px;
+            color: var(--bone-white);
+            font-family: "Courier New", Courier, monospace;
+            margin: 0; padding: 20px;
+            display: flex; justify-content: center;
+        }
+
+        #main-container {
+            display: grid;
+            grid-template-columns: 200px 1fr 320px;
+            gap: 15px;
+            width: 1350px;
+            max-width: 98vw;
+        }
+
+        /* Gothic Beveled Windows */
+        .window {
+            background: var(--surface);
+            border-top: 2px solid #4a2b6d;
+            border-left: 2px solid #4a2b6d;
+            border-right: 2px solid #000;
+            border-bottom: 2px solid #000;
+            box-shadow: 3px 3px 0px #000;
+            margin-bottom: 15px;
+        }
+
+        .title-bar {
+            background: linear-gradient(90deg, var(--crimson-accent), var(--deep-plum));
+            font-family: 'MedievalSharp', cursive;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .window-body { padding: 10px; color: var(--bone-white); }
+
+        /* Navigation */
+        .nav-link {
+            display: block; text-decoration: none; color: var(--electric-purple);
+            padding: 8px; border-bottom: 1px solid #2a1a3a;
+            font-family: 'MedievalSharp', cursive; transition: 0.3s;
+        }
+        .nav-link:hover { background: var(--crimson-accent); color: #fff; padding-left: 12px; }
+
+        /* Media Elements */
+        .anime-box {
+            border: 1px solid var(--electric-purple);
+            background: #000;
+            height: 200px;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden; filter: grayscale(30%) contrast(120%);
+        }
+
+        .spotify-container {
+            border: 2px inset #000;
+            background: #000;
+            margin-top: 5px;
+        }
+
+        /* Typography */
+        h1, h2, h3 { font-family: 'MedievalSharp', cursive; color: var(--electric-purple); margin-top: 0; }
+        .blink { animation: blinker 1.5s step-end infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
+
+        /* Form Overrides */
+        textarea, input {
+            background: #000 !important;
+            border: 1px inset var(--electric-purple) !important;
+            color: var(--bone-white) !important;
+        }

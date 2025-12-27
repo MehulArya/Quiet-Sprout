@@ -1,0 +1,54 @@
+{% load static %}
+<div class="window" style="margin-bottom: 20px;">
+    <div class="title-bar">
+        <div class="title-bar-text">PILOT_IDENTITY_v4.0.sys</div>
+    </div>
+    <div class="window-body">
+        <div style="display: flex; gap: 20px; align-items: flex-start;">
+            
+            <div style="flex-shrink: 0;">
+                <div class="anime-box" style="width: 160px; height: 160px; border: 2px solid var(--electric-lime); position: relative; background: #000;">
+			<img src="{{ pilot.profile_picture.url }}" 
+                         alt="Pilot Avatar" 
+                         style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8;">
+                </div>
+            </div>
+
+            <div style="flex-grow: 1;">
+                <h2 style="margin: 0; font-size: 24px; letter-spacing: 2px;">PILOT_03</h2>
+                
+                <div style="margin: 10px 0;">
+                    <span style="font-size: 10px; color: var(--forest-glow);">CURRENT_STATE:</span><br>
+                    <span class="blink" style="color: var(--neon-mint); font-weight: bold; font-size: 14px; text-transform: uppercase;">
+			    [ {{ pilot.status }} ]
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="window">
+    <div class="title-bar">
+        <div class="title-bar-text">MODIFY_SIGNAL_FRAGMENT</div>
+    </div>
+    <div class="window-body">
+        <form method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+            <div class="field-row-stacked" style="margin-bottom: 15px;">
+                <label style="color: var(--electric-lime); font-size: 11px;">REWRITE_STATUS_LOG:</label>
+                <input type="text" name='pilot_status' placeholder="Enter new status..." style="width: 100%;">
+            </div>
+
+            <div class="field-row-stacked" style="margin-bottom: 15px;">
+                <label style="color: var(--electric-lime); font-size: 11px;">UPLOAD_NEURAL_MAP (IMG):</label>
+                <input type="file" name='pilot_image' style="font-size: 10px; color: var(--forest-glow);">
+            </div>
+
+            <div style="display: flex; gap: 10px;">
+                <button type="submit" style="flex-grow: 1;">INITIATE_SYNC</button>
+                <button type="reset" style="width: 80px;">ABORT</button>
+            </div>
+        </form>
+    </div>
+</div>

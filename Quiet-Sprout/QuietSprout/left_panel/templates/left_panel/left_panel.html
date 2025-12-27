@@ -1,0 +1,30 @@
+<div class="window">
+    <div class="title-bar"><div class="title-bar-text">IDENTITY</div></div>
+    <div class="window-body">
+        <div class="anime-box">
+            <img src="" style="width:100%;">
+        </div>
+        <div style="margin-top: 10px; font-size: 10px; text-align: center;">
+            STATUS: <span class="blink" style="color:var(--crimson-accent);">MELANCHOLIC</span>
+        </div>
+	{% if user.is_superuser %}
+	<div style="margin-top: 10px; font-size: 10px; text-align: center;">
+		<a href={% url 'center_panel:identity' %}>
+		<button>Edit Profile</button>
+		</a>
+	</div>
+	{% endif %}
+    </div>
+</div>
+
+<div class="window">
+    <div class="title-bar"><div class="title-bar-text">DIRECTORY</div></div>
+    <div class="window-body" style="padding:0;">
+        <nav>
+            <a href="/" class="nav-link">† THE_THRESHOLD</a>
+            <a href="/blog" class="nav-link">† MIDNIGHT_LOGS</a>
+            <a href="/sketches" class="nav-link">† VISUAL_VOID</a>
+            <a href="/reviews" class="nav-link">† CINE_AUDITS</a>
+        </nav>
+    </div>
+</div>
