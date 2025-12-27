@@ -1,0 +1,29 @@
+<div class="window" style="width: 100%;">
+    <div class="title-bar">
+        <div class="title-bar-text">PILOT_NETWORK_MATRIX // 04_COLUMN_SCAN</div>
+    </div>
+    <div class="window-body terminal-bg">
+        <div class="four-col-matrix">
+            {% for identity in pilots %}
+                <a href="{% url 'center_panel:view-pilot' identity.user.username %}" class="matrix-item">
+                    <div class="square-frame">
+                        {% if identity.profile_picture %}
+                            <img src="{{ identity.profile_picture.url }}" alt="pilot">
+                        {% else %}
+                            <div class="null-data">†</div>
+                        {% endif %}
+                        <div class="glitch-line"></div>
+                    </div>
+                    <div class="matrix-label">
+                        <span class="uid">ID: {{ identity.user.username|truncatechars:10 }}</span>
+                        <span class="status-dot"></span>
+                    </div>
+                </a>
+            {% empty %}
+                <p class="blink" style="color:var(--crimson-accent); font-family:'MedievalSharp'; text-align:center; grid-column: span 4;">
+                    NO_PILOTS_IN_SECTOR_†
+                </p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
