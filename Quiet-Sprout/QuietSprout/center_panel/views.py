@@ -57,3 +57,7 @@ class PilotProfileView(LoginRequiredMixin, generic.TemplateView):
 
         return context
 
+class MidnightLogListView(LoginRequiredMixin, View):
+    def get(self, request):
+        ctx = {'center_template' : 'center_panel/midnight_logs_list.html'}
+        return render(request, 'index.html', ctx)
