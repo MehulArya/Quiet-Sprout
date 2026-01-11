@@ -36,13 +36,23 @@
         <form method="POST" enctype="multipart/form-data">
 		{% csrf_token %}
             <div class="field-row-stacked" style="margin-bottom: 15px;">
-                <label style="color: var(--electric-lime); font-size: 11px;">REWRITE_STATUS_LOG:</label>
+                <label style="color: var(--electric-lime); font-size: 13px;">REWRITE_STATUS_LOG:</label>
                 <input type="text" name='pilot_status' placeholder="Enter new status..." style="width: 100%;">
             </div>
 
             <div class="field-row-stacked" style="margin-bottom: 15px;">
-                <label style="color: var(--electric-lime); font-size: 11px;">UPLOAD_NEURAL_MAP (IMG):</label>
+                <label style="color: var(--electric-lime); font-size: 13px;">UPLOAD_NEURAL_MAP (IMG):</label>
                 <input type="file" name='pilot_image' style="font-size: 10px; color: var(--forest-glow);">
+            </div>
+
+	    <div class="field-row-stacked" style="margin-bottom: 15px;">
+                <label style="color: var(--electric-lime); font-size: 13px;">PILOT_DESIGNATION_CODE:</label>
+                <input type="text" name='about_heading' style="width: 100%;" placeholder="EVA__OPERATOR...">
+            </div>
+
+	    <div class="field-row-stacked" style="margin-bottom: 15px;">
+                <label style="color: var(--electric-lime); font-size: 13px;">PSYCHOLOGICAL_ANALYSIS_LOG:</label>
+		<textarea type="text" name='about' style="width: 100%;" row="4" cols="50" placeholder="INPUT_PILOT_STATE_FOR_MAGI_REVIEW..."></textarea>
             </div>
 
             <div style="display: flex; gap: 10px;">

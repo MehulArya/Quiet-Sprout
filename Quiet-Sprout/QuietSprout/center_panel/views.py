@@ -26,11 +26,19 @@ class IdentityView(LoginRequiredMixin,View):
 
         status = request.POST.get('pilot_status')
         image = request.FILES.get('pilot_image')
+        about_h = request.POST.get('about_heading')
+        about = request.POST.get('about')
         if status:
             pilot.status = status
 
         if image:
             pilot.profile_picture = image
+
+        if about_h:
+            pilot.about_heading = about_h
+
+        if about:
+            pilot.about = about
 
         pilot.save()
         return redirect('center_panel:identity')
