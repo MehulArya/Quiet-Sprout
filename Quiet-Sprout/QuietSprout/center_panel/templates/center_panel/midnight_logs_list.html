@@ -1,1 +1,14 @@
-<h1>Hey I am Midnight Logs HTML</h1>
+{% if display_user %}
+<h2>Midnight Logs — {{ display_user.username }}</h2>
+{% else %}
+<h2>Midnight Logs — {{ reuquest.user.username }}</h2>
+{% endif %}
+{% for log in logs %}
+    <div class="log">
+        <p>{{ log.content }}</p>
+        <small>{{ log.created_at }}</small>
+    </div>
+{% empty %}
+    <p>No logs found.</p>
+{% endfor %}
+

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View, generic
 from left_panel import models as l_models
+from center_panel import models as c_models
 from django.contrib.auth import models as auth_models
 from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
@@ -57,7 +58,21 @@ class PilotProfileView(LoginRequiredMixin, generic.TemplateView):
 
         return context
 
-class MidnightLogListView(LoginRequiredMixin, View):
-    def get(self, request):
-        ctx = {'center_template' : 'center_panel/midnight_logs_list.html'}
-        return render(request, 'index.html', ctx)
+class MidnightLogListView(LoginRequiredMixin, generic.ListView):
+    model = c_models.MidnightLogs
+    template_name = 'index.html'
+    context_object_name = 'logs'
+    extra_context = {
+            'center_template' : 'center_panel/midnight_logs_list.html'
+            }
+    def get_queryset(self):
+        username = self.kwargs.get('username')
+        self.display_user = get_object_or_404(auth_models.User, username=username)
+        return c_models.MidnightLogs.objects.filter(author=self.display_user)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context['display_user'] = self.display_user
+        context['is_external_view'] = True
+        return context
